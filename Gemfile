@@ -70,3 +70,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
+
+gem 'will_paginate', '>= 3.1'
+
+gem 'simple_form'
+
+
+
