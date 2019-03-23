@@ -4,8 +4,22 @@ class PlacesController < ApplicationController
     @places = Place.all
   end
 
-end
+  def new
+    @place= Place.new
+  end
 
+  def create
+    Place.create(place_params)
+    redirect_to root_path
+  end
+
+  private
+
+  def place_params
+    params.require(:place).permit(:name, description, :address)
+  end
+
+end
 
 
 def self.search(term, current_page)
@@ -15,8 +29,6 @@ def self.search(term, current_page)
     page(current_page).order('id DESC') 
   end
 
-end
-
 
 
 def self.search(term, page)
@@ -25,4 +37,5 @@ def self.search(term, page)
   else
     paginate(page: page, per_page: 5).order('id DESC') 
   end
+  
 end
