@@ -24,6 +24,17 @@
             <% end %>
           </li>
         </ul>
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to 'Sign out', destroy_user_session_path, mathod: :delete, class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'No user is signed in :(', '#', class: 'nav-link' %>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </nav>
           <li class="nav-item">
@@ -51,4 +62,3 @@
 
   </body>
 </html>
-

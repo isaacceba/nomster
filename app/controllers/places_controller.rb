@@ -1,19 +1,22 @@
 class PlacesController < ApplicationController
 
   def index
-    @link = Place.path(page: params[:page]. per_page:)
+    @places = Place.all
   end
 
   def new
     @place= Place.new
   end
 
-  def index
-    Place.path(page: params[:page], per_page: 30)
+  def create
+    Place.create(place_params)
     redirect_to root_path
   end
 
   private
 
+  def place_params
+    params.require(:place).permit(:name, :description, :address)
+  end
 end
 
