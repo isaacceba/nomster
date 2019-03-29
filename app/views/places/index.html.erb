@@ -2,7 +2,7 @@
 
 <% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
-    <h1><%= place.name %></h1>
+    <h1><%= link_to place.name, place_path(place) %></h1><br />
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p><br />
 
@@ -11,25 +11,3 @@
     <% end %>
   </div>
 <% end %>
-
-<h1>Tasks</h1>
-  <%= form_tag(tasks_path, method: :get) do %>
-   <%= text_field_tag :term, params[:term] %>
-   <%= submit_tag 'Search', name: nil %>
-<% end %>
-<table>
-  <thead>
-    <tr><th></th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <% for task in @tasks %>
-        <div class='task'>
-            <strong> <%= task.name %> </strong>
-        </div>
-        <%= link_to 'Edit', edit_task_path(task) %>
-        <%= link_to 'Show', task %>
-      <% end %>
-     </tr>       
-  </tbody>
-</table>
