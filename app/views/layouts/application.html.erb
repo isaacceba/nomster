@@ -21,7 +21,6 @@
             <%= link_to 'New Place', 'new_place-path', class: 'nav-link' %>
             <i class="fa fa-plus-circle"></i>
             New Place
-            <% end %>
           </li>
         </ul>
         <ul class="navbar-nav">
@@ -31,8 +30,11 @@
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to 'No user is signed in :(', '#', class: 'nav-link' %>
+              <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
             </li>
+            <li class="nav-item">
+              <% link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+            </li> 
           <% end %>
         </ul>
       </div>
