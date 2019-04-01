@@ -16,6 +16,7 @@ class PlacesController < ApplicationController
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -27,8 +28,8 @@ class PlacesController < ApplicationController
 
     if @place.user != current_user
       return render plain: 'Not Allowed', status: :forbidden
-  end
- end 
+    end
+  end 
 
   def update
     @place = Place.find(params[:id])
@@ -42,12 +43,14 @@ class PlacesController < ApplicationController
       redirect_to root_path
     else
       render :edit, status: :unprocessable_entity
+    end
   end
 
   def destory
     @place = Place.find(params[:id])
     if @place.user != current_user
       return render plain: 'Not Allowed', status: :forbidden
+    end
   end
 
   private

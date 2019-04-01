@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :places
+
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
 end
+
