@@ -1,1 +1,2 @@
-photo.rb
+class Photo < ApplicationRecord
+end
